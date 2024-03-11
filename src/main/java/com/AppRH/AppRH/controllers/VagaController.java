@@ -28,7 +28,7 @@ public class VagaController {
         }
 
         vr.save(vaga);
-        attributes.add("mensagem", "Vaga cadastrada com sucesso!");
+        attributes.addFlashAttribute("mensagem", "Vaga cadastrada com sucesso!");
         return "redirect:/cadastrarVaga";
     }
 }
