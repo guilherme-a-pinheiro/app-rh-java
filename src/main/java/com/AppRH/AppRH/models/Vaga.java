@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ public class Vaga implements Serializable {
 
     private static final long serialVersonUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotEmpty
@@ -32,5 +33,4 @@ public class Vaga implements Serializable {
 
     @OneToMany(mappedBy = "vaga", cascade = CascadeType.REMOVE)
     private List<Candidato> candidatos;
-
 }
