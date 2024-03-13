@@ -83,4 +83,31 @@ public class VagaController {
         return "redirect:/{id}";
     }
 
+    @RequestMapping("/deletarCandidato")
+    public String deletarCandidato(String rg){
+            Candidato candidato = cr.findByRg(rg);
+            Vaga vaga = candidato.getVaga();
+            String codigo = "" + vaga.getId();
+
+            cr.delete(candidato);
+            return "redirect:/" + codigo;
+        }
+
+        @RequestMapping(value = "/editar-vaga", method = RequestMethod.GET)
+        public ModelAndView editarVaga(long id){
+            Vaga vaga = vr.findById(id);
+            ModelAndView mv = new ModelAndView("vaga/update-vaga");
+            mv.addObject("vaga", vaga);
+            return mv;
+        }
+
+        @RequestMapping(value = "/editar-vaga", method = RequestMethod.POST)
+        public String updateVaga(@Valid Vaga vaga, BindingResult result, RedirectAttributes attributes){
+            vr.save(vaga);
+            attributes.addFlashAttribute("success", "Vaga alterada com sucesso!");
+            long idLong = vaga.getId();
+            String codigo = ""+ idLong;
+            return "redirect:/" + codigo;
+        }
+
 }
