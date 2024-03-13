@@ -54,7 +54,6 @@
 							href="/cadastrarVaga"> << Cadastrar Vaga>> </a></li>
 						<li class="nav-item"><a class="nav-link" href="/logout">Sair
 						</a></li>
-
 					</ul>
 				</div>
 			</div>
@@ -62,56 +61,103 @@
 
 	</header>
 
-
 	<div class="container">
 
-		<th:block th:include="mensagem-validacao"></th:block>
-
-		<form method="post">
-
-			<h1>Atualizar Funcionário</h1>
+		<h1>Informações do funcionário:</h1>
+		<div class="container" th:each="funcionario : ${funcionarios}">
 
 			<br>
 
-			<div class="form-group">
-				<label for=""><b>Nome do funcionário:</b> </label> <input
-					type="text" class="form-control" value="" name="nome" required
-					th:attr="value = ${funcionario.nome}" /> <small
-					class="form-text text-muted"><i>* Utilize nomes e
-						termos mais utilizados no mercado.</i></small>
-			</div>
+			<p>
+				<b>Nome:</b> <span th:text="${funcionario.nome}"></span>
+			</p>
+			<p>
+				<b>Data de nascimento:</b> <span th:text="${funcionario.data}"></span>
+			</p>
+			<p>
+				<b>E-mail:</b> <span th:text="${funcionario.email}"></span>
+			</p>
 
 
-			<div class="row">
+			<br> <br>
 
-				<div class="col">
-					<div class="form-group">
-						<label for=""><b>Data de nascimento:</b></label> <input
-							type="date" class="form-control" value="" name="data" required
-							th:attr="value = ${funcionario.data}" /><small
-							class="form-text text-muted"><i>* Data de nascimento.</i></small>
+			<h2>Cadastrar dependentes</h2>
+
+
+			<form method="post" th:object="${dependente}">
+
+				<div class="form-group">
+					<div class="row">
+
+						<div class="col">
+							<label for=""><b>Nome:</b> </label> <input type="text" value=""
+								name="nome" class="form-control" placeholder="Nome Completo"
+								required />
+						</div>
+
+
+						<div class="col">
+							<label for=""><b>CPF: </b> </label><input type="text" value=""
+								name="cpf" placeholder="Somente números, sem traçõs ou pontos."
+								class="validate form-control" required />
+						</div>
+
+
+						<br> <br>
+						<div class="col">
+
+							<div class="form-group">
+								<label for=""><b>Data de nascimento:</b></label> <input
+									type="date" value="" name="datanascimento" class="form-control"
+									required /> <small class="form-text text-muted"><i>*
+										Dia/Mês/Ano.</i></small>
+							</div>
+						</div>
+
 					</div>
-				</div>
-				<div class="col">
-
-					<div class="form-group">
-						<label for=""><b>E-mail:</b></label><input type="text"
-							class="form-control" value="" name="email" required
-							th:attr="value = ${funcionario.email}" /><small
-							class="form-text text-muted"><i>* email@email.com</i></small>
-					</div>
-
-				</div>
-			</div>
 
 
 
 
-			<button type="submit" class="btn btn-success">Atualizar
-				Funcionário</button>
-		</form>
+					<button type="submit" class="btn btn-success">Adicionar
+						Dependente</button>
+			</form>
+
+
+
+		</div>
+
+		<th:block th:include="mensagem-validacao"></th:block>
+
+		<br> <br>
+
+		<h2>Dependentes:</h2>
+
+		<br>
+
+		<table class="table table-hover table-responsive w-auto table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Nome do dependente:</th>
+					<th scope="col">CPF:</th>
+					<th scope="col">Data de nascimento:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dependente : ${dependentes}">
+					<td><span th:text="${dependente.nome}"></span></td>
+					<td><span th:text="${dependente.cpf}"></span></td>
+					<td><span th:text="${dependente.datanascimento}"></span></td>
+					<td><a class="waves-effect waves-light btn-small"
+						th:href="${(#mvc.url('FC#deletarDependente').arg(0, dependente.cpf)).build()}"><button
+								type="button" class="btn btn-danger">Excluir</button></a></td>
+
+
+				</tr>
+			</tbody>
+		</table>
+
 	</div>
-
 
 
 	<div style="height: 100px;"></div>
@@ -131,8 +177,6 @@
 		crossorigin="anonymous">
 		
 	</script>
-
-
 </body>
 
 </html>

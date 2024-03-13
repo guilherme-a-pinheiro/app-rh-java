@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
+<html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>App RH</title>
+<title>| App RH - UC 12 |</title>
 
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,8 +23,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-<title>| App RH - UC 12 |</title>
 
 </head>
 
@@ -63,53 +61,50 @@
 	</header>
 
 
+
 	<div class="container">
+
+		<h1>Cadastro de Funcionário</h1>
+
+		<br>
 
 		<th:block th:include="mensagem-validacao"></th:block>
 
 		<form method="post">
 
-			<h1>Atualizar Funcionário</h1>
-
-			<br>
-
 			<div class="form-group">
-				<label for=""><b>Nome do funcionário:</b> </label> <input
-					type="text" class="form-control" value="" name="nome" required
-					th:attr="value = ${funcionario.nome}" /> <small
-					class="form-text text-muted"><i>* Utilize nomes e
-						termos mais utilizados no mercado.</i></small>
+				<label for=""><b>Nome:</b> </label> <input type="text"
+					class="form-control" value=""
+					placeholder="Insira o nome do funcionário" name="nome" required>
+				<small class="form-text text-muted"><i>* Nome completo.</i></small>
 			</div>
-
 
 			<div class="row">
-
 				<div class="col">
+
 					<div class="form-group">
 						<label for=""><b>Data de nascimento:</b></label> <input
-							type="date" class="form-control" value="" name="data" required
-							th:attr="value = ${funcionario.data}" /><small
-							class="form-text text-muted"><i>* Data de nascimento.</i></small>
+							type="date" value="" name="data" class="form-control" required />
+						<small class="form-text text-muted"><i>* Dia/Mês/Ano.</i></small>
 					</div>
 				</div>
 				<div class="col">
-
-					<div class="form-group">
-						<label for=""><b>E-mail:</b></label><input type="text"
-							class="form-control" value="" name="email" required
-							th:attr="value = ${funcionario.email}" /><small
-							class="form-text text-muted"><i>* email@email.com</i></small>
-					</div>
-
+					<label for=""><b>E-mail:</b> </label> <input type="text" value=""
+						name="email" class="form-control" placeholder="email@email.com"
+						required />
 				</div>
+
 			</div>
-
-
-
-
-			<button type="submit" class="btn btn-success">Atualizar
+			<button type="submit" class="btn btn-success">Adicionar
 				Funcionário</button>
-		</form>
+	</div>
+
+	<br>
+	<br>
+
+	</form>
+
+
 	</div>
 
 
