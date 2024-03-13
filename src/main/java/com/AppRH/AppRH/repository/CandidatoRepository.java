@@ -13,6 +13,6 @@ public interface CandidatoRepository extends CrudRepository<Candidato, String> {
 
     Candidato findById(long id);
 
-    List<Candidato> findByNameCandidato(String name);
+    List<Candidato> findByNomeCandidato(String name);
 
 }

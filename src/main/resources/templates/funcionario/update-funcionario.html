@@ -9,7 +9,7 @@
 
 	<title>App RH</title>
 
-	<!-- Bootstrap para o thymeleaf-->
+	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
@@ -47,7 +47,6 @@
 								<< Cadastrar Vaga>>
 							</a></li>
 
-
 					</ul>
 				</div>
 			</div>
@@ -59,19 +58,16 @@
 	<div class="container">
 
 
-		<th:block th:include="mensagemValidacao"></th:block>
-
 
 		<form method="post">
 
-			<h1>Atualizar vaga</h1>
+			<h1>Atualizar Funcionário</h1>
 
 			<br>
 
 			<div class="form-group">
-				<label for=""><b>Nome do cargo:</b> </label> <input type="text" class="form-control" value=""
-					name="nome" th:attr="value = ${vaga.nome}" required /> <small class="form-text text-muted"><i>*
-						Utilize nomes e
+				<label for=""><b>Nome do funcionário:</b> </label> <input type="text" class="form-control" value=""
+					name="nome" required /> <small class="form-text text-muted"><i>* Utilize nomes e
 						termos mais utilizados no mercado.</i></small>
 			</div>
 
@@ -80,36 +76,29 @@
 
 				<div class="col">
 					<div class="form-group">
-						<label for=""><b>Data de expiração:</b></label> <input type="date" class="form-control" value=""
-							name="data" th:attr="value = ${vaga.data}" required /><small
-							class="form-text text-muted"><i>* Data em que a vaga
-								expira.</i></small>
+						<label for=""><b>Data de nascimento:</b></label> <input type="date" class="form-control"
+							value="" name="data" required /><small class="form-text text-muted"><i>* Data de
+								nascimento.</i></small>
 					</div>
 				</div>
 				<div class="col">
 
 					<div class="form-group">
-						<label for=""><b>Salário:</b></label> R$ <input type="number" class="form-control"
-							pattern="^\d+(\.|\,)\d{2}$" value="" name="salario" th:attr="value = ${vaga.salario}"
-							required /><small class="form-text text-muted"><i>* Utilize valores
-								considerando vírgula e ponto.</i></small>
+						<label for=""><b>E-mail:</b></label><input type="text" class="form-control" value=""
+							name="email" required /><small class="form-text text-muted"><i>* email@email.com</i></small>
 					</div>
+
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label for=""><b>Descrição da vaga:</b></label>
-				<textarea class="form-control" name="descricao" maxlength="254" rows="3" th:text="${vaga.descricao}"
-					required></textarea>
-				<small class="form-text text-muted"><i>* Breve resumo da
-						vaga oferecida..</i></small>
-			</div>
 
 
 
-			<button type="submit" class="btn btn-success">Salvar</button>
+			<button type="submit" class="btn btn-success">Atualizar
+				Funcionário</button>
 		</form>
 	</div>
+
 
 
 	<div style="height: 100px;"></div>
@@ -118,6 +107,7 @@
 		<span class="text-light align-middle">| App RH - UC 12 | - ©
 			2022 Copyright: CTM Supervisão de Educação Online</span>
 	</div>
+
 
 
 	<!--JavaScript bootstrap-->

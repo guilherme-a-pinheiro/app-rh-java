@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>| App RH - UC 12 |</title>
+	<title>App RH</title>
 
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,19 +19,18 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	<title>VagasApp</title>
+	<title>| App RH - UC 12 |</title>
 
 </head>
 
 <body>
 
 
-
 	<header>
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">App RH</a>
+				<a class="navbar-brand" href="/">App RH</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -59,35 +58,34 @@
 
 	<div class="container">
 
-		<h1>Lista de vagas cadastradas</h1>
+		<h1>Lista interna de funcionários</h1>
 
 		<br>
 
 		<table class="table table-hover table-responsive w-auto table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Nome da vaga:</th>
-					<th scope="col">Descrição:</th>
-					<th scope="col">Salário:</th>
-					<th scope="col">Expira:</th>
+					<th scope="col">Nome:</th>
+					<th scope="col">Data de nascimento:</th>
+					<th scope="col">E-mail:</th>
 					<th scope="col"></th>
-					<th scope="col">Ações:</th>
+					<th scope="col">Ação</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="vaga: ${vagas}">
-					<td><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}">
-							<span th:text="${vaga.nome}"></span></a></td>
-					<td><span th:text="${vaga.descricao}"></span></td>
-					<td>R$ <span th:text="${vaga.salario}"></span></td>
-					<td><span th:text="${vaga.data}"></span></td>
-					<td><a th:href="${(#mvc.url('VC#deletarVaga').arg(0, vaga.codigo)).build()}"><button type="button"
+				<tr>
+
+					<td><a href="#"><span></span></a></td>
+					<td><span></span></td>
+					<td><span></span></td>
+					<td><a href="#" class="waves-effect waves-light btn-small"><button type="button"
 								class="btn btn-danger">Excluir</button></a></td>
-					<td><a th:href="${(#mvc.url('VC#editarVaga').arg(0, vaga.codigo)).build()}"><button type="button"
-								class="btn btn-primary">Editar</button></a></td>
-					<td><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}"><button type="button"
-								class="btn btn-success">Adicionar candidato</button></a></td>
+					<td><a href="#"><button type="button" class="btn btn-primary">Editar</button></a></td>
+
+					<td><a href="#"><button type="button" class="btn btn-success">Adicionar
+								dependente</button></a></td>
+
 				</tr>
 			</tbody>
 		</table>
@@ -99,6 +97,7 @@
 			<span class="text-light align-middle">| App RH - UC 12 | - ©
 				2022 Copyright: CTM Supervisão de Educação Online</span>
 		</div>
+
 
 
 		<!--JavaScript bootstrap-->
